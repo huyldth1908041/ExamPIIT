@@ -1,0 +1,19 @@
+﻿@model ExamPIIT.Models.User
+
+@{
+    ViewBag.Title = "ConfirmUser";
+}
+
+<h2>Confirm Register</h2>
+
+<p>We've sent a verify code to @Model.Phone</p>
+
+<form action="@Url.Action("ConfirmUser", "Account", new { id = Model.Id})" method="post">
+    <div class="form-group">
+        <label for="email">Enter your verify code:</label>
+        <input type="text" class="form-control" id="email" name="code">
+    </div>
+
+    <button type="submit" class="btn btn-default">Verify</button>
+</form>
+<p class="text-danger">@TempData["status"]</p>
